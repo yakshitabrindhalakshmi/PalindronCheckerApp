@@ -1,27 +1,29 @@
 
-public class UseCase2PalindromeCheckerApp {
+public class UseCase3PalindromeCheckerApp {
 
-
+    /**
+     * Application entry point for UC3.
+     * * @param args Command-line arguments
+     */
     public static void main(String[] args) {
-        // Step 1: Hardcoded string literal
-        String input = "madam";
-        boolean isPalindrome = true;
-        int length = input.length();
+        // Step 1: Predefined string
+        String input = "radar";
+        String reversed = "";
 
-        // Step 2: Comparison logic using the hint (looping until half length)
-        //         for (int i = 0; i < length / 2; i++) {
-        // Compare character at index i with character at the mirrored index from the end
-        if (input.charAt(i) != input.charAt(length - 1 - i)) {
-            isPalindrome = false;
-            break; // Exit loop early if a mismatch is found
+        // Step 2: Iterate from the last character to the first
+        // Hint: for (int i = input.length() - 1; i >= 0; i--)
+        for (int i = input.length() - 1; i >= 0; i--) {
+            reversed += input.charAt(i); // Building the reversed string character by character
+        }
+
+        // Step 3: Compare original and reversed strings
+        System.out.println("Original String: " + input);
+        System.out.println("Reversed String: " + reversed);
+
+        if (input.equals(reversed)) {
+            System.out.println("Result: It is a Palindrome.");
+        } else {
+            System.out.println("Result: It is NOT a Palindrome.");
         }
     }
-
-    // Step 3: Print the result to the console
-        if (isPalindrome) {
-        System.out.println("The string '" + input + "' is a palindrome.");
-    } else {
-        System.out.println("The string '" + input + "' is NOT a palindrome.");
-    }
-}
 }
