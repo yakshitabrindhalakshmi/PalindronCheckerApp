@@ -1,29 +1,41 @@
 
-public class UseCase3PalindromeCheckerApp {
+
+public class UseCase4PalindromeCheckerApp {
 
     /**
-     * Application entry point for UC3.
+     * Application entry point for UC4.
      * * @param args Command-line arguments
      */
     public static void main(String[] args) {
-        // Step 1: Predefined string
+        // Declare and initialize the input string
         String input = "radar";
-        String reversed = "";
 
-        // Step 2: Iterate from the last character to the first
-        // Hint: for (int i = input.length() - 1; i >= 0; i--)
-        for (int i = input.length() - 1; i >= 0; i--) {
-            reversed += input.charAt(i); // Building the reversed string character by character
+        // Convert the string into a character array
+        char[] chars = input.toCharArray();
+
+        // Initialize pointer at the beginning
+        int start = 0;
+
+        // Initialize pointer at the end
+        int end = chars.length - 1;
+
+        // Assume palindrome initially
+        boolean isPalindrome = true;
+
+        // Continue comparison until pointers cross
+        while (start < end) {
+            // Compare characters at the current pointer positions
+            if (chars[start] != chars[end]) {
+                isPalindrome = false;
+                break; // Mismatch found, exit loop
+            }
+            // Move pointers toward the middle
+            start++;
+            end--;
         }
 
-        // Step 3: Compare original and reversed strings
-        System.out.println("Original String: " + input);
-        System.out.println("Reversed String: " + reversed);
-
-        if (input.equals(reversed)) {
-            System.out.println("Result: It is a Palindrome.");
-        } else {
-            System.out.println("Result: It is NOT a Palindrome.");
-        }
+        // Display the output as shown in the requirement
+        System.out.println("Input : " + input);
+        System.out.println("Is Palindrome? : " + isPalindrome);
     }
 }
